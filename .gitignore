@@ -31,3 +31,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 
 src/grocery-crud-1.6.4
+assets/templates/AdminLTE-2.4.18
