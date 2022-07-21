@@ -23,7 +23,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
  */
-$config['base_url'] = 'http://localhost/codeigniter_eval';
+// $config['base_url'] = 'http://localhost/codeigniter_eval';
+$protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
+$host = $_SERVER["HTTP_HOST"];
+$config['base_url'] = $protocol.'://'.$host.'/codeigniter_eval/';
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +81,7 @@ $config['url_suffix'] = '';
 |
  */
 $config['language'] = 'english';
+// $config['language'] = 'spanish';
 
 /*
 |--------------------------------------------------------------------------
@@ -325,7 +329,8 @@ $config['cache_query_string'] = false;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
  */
-$config['encryption_key'] = '';
+// $config['encryption_key'] = '';
+$config['encryption_key'] = 'key_secret';
 
 /*
 |--------------------------------------------------------------------------
