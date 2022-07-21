@@ -11,7 +11,7 @@
  Target Server Version : 100417
  File Encoding         : 65001
 
- Date: 20/07/2022 21:05:54
+ Date: 20/07/2022 23:34:13
 */
 
 SET NAMES utf8mb4;
@@ -261,6 +261,26 @@ INSERT INTO `category` VALUES (13, 'New');
 INSERT INTO `category` VALUES (14, 'Sci-Fi');
 INSERT INTO `category` VALUES (15, 'Sports');
 INSERT INTO `category` VALUES (16, 'Travel');
+
+-- ----------------------------
+-- Table structure for chatbot
+-- ----------------------------
+DROP TABLE IF EXISTS `chatbot`;
+CREATE TABLE `chatbot`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `section` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `step` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `response` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `suggestion` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of chatbot
+-- ----------------------------
+INSERT INTO `chatbot` VALUES (1, 'TEST', '_1', 'Hola, soy el chatbot, escribe info', 'info');
+INSERT INTO `chatbot` VALUES (2, 'TEST', '_2', 'Fui desarrollado para una demo, pero puedo ayudarte en estos temas: demo_yana, inicio', 'demo_yana|inicio');
+INSERT INTO `chatbot` VALUES (3, 'TEST', '_3', 'Primero dime, ¿quién dice que las cosas deberían de ser así como tú las piensas? ¿Quién o qué define el estándar de que las cosas deberían o no deberían de ser de tal manera?', NULL);
 
 -- ----------------------------
 -- Table structure for customers
@@ -8981,6 +9001,27 @@ INSERT INTO `film_category` VALUES (999, 3);
 INSERT INTO `film_category` VALUES (1000, 5);
 
 -- ----------------------------
+-- Table structure for human
+-- ----------------------------
+DROP TABLE IF EXISTS `human`;
+CREATE TABLE `human`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `section` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `step` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `word` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of human
+-- ----------------------------
+INSERT INTO `human` VALUES (1, 'TEST', '_1', 'hola|ola|hello|hi|home|inicio|welcome');
+INSERT INTO `human` VALUES (2, 'TEST', '_2', 'info|informacion');
+INSERT INTO `human` VALUES (3, 'TEST', '_3', 'demo_yana');
+INSERT INTO `human` VALUES (4, 'TEST', '_4', 'En realidad nadie Creo que afectaría la relación con la persona dependiendo de que decisión tome');
+INSERT INTO `human` VALUES (5, 'TEST', '_5', 'Pues solo lo supongo Un poco grave dependiendo de cómo me afecte a mi y la relación');
+
+-- ----------------------------
 -- Table structure for offices
 -- ----------------------------
 DROP TABLE IF EXISTS `offices`;
@@ -12825,8 +12866,8 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (2, 'test1', 'test1@gmail.com', '8ba528e21d4f461350ce8dd9c588d4bf10e49af231390955ffa6afd033ba480b84addb624b84ee34d42f13581bd86e5bb745aa2e5721b4eeb028dd75d9dc2669Neus8E7cIHA4JyqzL7Vn9kEZCazc/mVtLFCxGMBoqbU=', 'COMMON');
-INSERT INTO `users` VALUES (3, 'test2', 'test2@gmail.com', '97e7d263c9ef24159f715626728e1af9eecd03fed471f66b7c9310837e47cc0dff65a3ee174d5f116ead55e7774a9b4c6448ecb419662eb33a8446416ccd9fa9tj+kQPqV+utsBeag1/oblEAkdbJOfwxYdH5AT5l17MY=', 'COMMON');
-INSERT INTO `users` VALUES (4, 'test3', 'test3@gmail.com', 'ee6215e3f80e91d7cc0b52243077a5b4c0100d6fcc72844c9b536a127bd81f02f97b51d8f1b1930bbe16e1ce99e8b2afa9cb8c439497d059c714b76f649e56d5rBOQ7EyHWbJ+q2W7t7y7nqcBgjQ293z3giiOUcrMsBI=', 'COMMON');
+INSERT INTO `users` VALUES (1, 'test1', 'test1@gmail.com', '8ba528e21d4f461350ce8dd9c588d4bf10e49af231390955ffa6afd033ba480b84addb624b84ee34d42f13581bd86e5bb745aa2e5721b4eeb028dd75d9dc2669Neus8E7cIHA4JyqzL7Vn9kEZCazc/mVtLFCxGMBoqbU=', 'COMMON');
+INSERT INTO `users` VALUES (2, 'test2', 'test2@gmail.com', '97e7d263c9ef24159f715626728e1af9eecd03fed471f66b7c9310837e47cc0dff65a3ee174d5f116ead55e7774a9b4c6448ecb419662eb33a8446416ccd9fa9tj+kQPqV+utsBeag1/oblEAkdbJOfwxYdH5AT5l17MY=', 'COMMON');
+INSERT INTO `users` VALUES (3, 'test3', 'test3@gmail.com', 'ee6215e3f80e91d7cc0b52243077a5b4c0100d6fcc72844c9b536a127bd81f02f97b51d8f1b1930bbe16e1ce99e8b2afa9cb8c439497d059c714b76f649e56d5rBOQ7EyHWbJ+q2W7t7y7nqcBgjQ293z3giiOUcrMsBI=', 'COMMON');
 
 SET FOREIGN_KEY_CHECKS = 1;
