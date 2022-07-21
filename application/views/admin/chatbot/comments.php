@@ -43,9 +43,9 @@
             </div>
 
             <div class="box-footer">
-                <form action="#" method="post">
+                <form id="form_chatbot">
                     <div class="input-group">
-                        <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                        <input type="text" id="message" placeholder="Type Message ..." class="form-control">
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-primary btn-flat">Send</button>
                         </span>

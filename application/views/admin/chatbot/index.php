@@ -37,6 +37,7 @@
     </div>
 
     <?php $this->load->view('/admin/shared/foot', $data); ?>
+    <script src="<?= base_url('assets/js/'); ?>chatbot/index.js"></script>
 </body>
 
 </html>
