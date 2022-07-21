@@ -14,7 +14,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-users"></i> <span>Users</span></a></li>
-            <li><a href="<?= base_url('admin/bot') ?>"><i class="fa fa-comments-o"></i> <span>Bot</span></a></li>
+            <li><a href="<?= base_url('admin/chatbot') ?>"><i class="fa fa-comments-o"></i> <span>Chat Bot</span></a></li>
         </ul>
     </section>
 

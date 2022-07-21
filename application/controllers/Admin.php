@@ -16,7 +16,7 @@ class Admin extends CI_Controller
     {
         $this->load->view('admin/index');
     }
-
+    
     public function users()
     {
         $crud = new grocery_CRUD();
@@ -34,5 +34,10 @@ class Admin extends CI_Controller
     public function _example_output($output = null)
     {
         $this->load->view('admin/grocery', (array)$output);
+    }
+
+    public function chatbot()
+    {
+        $this->load->view('admin/chatbot/index');
     }
 }
