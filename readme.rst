@@ -1,3 +1,15 @@
+# CodeIgniter Chatbot DEMO
+
+*******************
+Database file sql
+*******************
+Please see the `folder src/codeigniter_eval.sql <https://github.com/royerreyesleon/codeigniter_eval/blob/main/src/codeigniter_eval.sql>`_.
+
+![1](1.png)
+![2](2.png)
+![3](3.png)
+![4](4.png)
+
 ###################
 What is CodeIgniter
 ###################
