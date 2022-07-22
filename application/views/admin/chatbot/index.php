@@ -32,7 +32,7 @@
     </div>
 
     <?php $this->load->view('/admin/shared/foot', $data); ?>
-    <script src="<?= base_url('assets/js/'); ?>chatbot/index.js"></script>
+    <script src="<?= base_url('assets/js/'); ?>chatbot/index-min.js"></script>
 </body>
 
 </html>
