@@ -5,10 +5,10 @@ Database file sql
 *******************
 Please see the `folder src/codeigniter_eval.sql <https://github.com/royerreyesleon/codeigniter_eval/blob/main/src/codeigniter_eval.sql>`_.
 
-![1](1.png)
-![2](2.png)
-![3](3.png)
-![4](4.png)
+![1](https://github.com/royerreyesleon/codeigniter_eval/blob/main/1.png?raw=true)
+![2](https://github.com/royerreyesleon/codeigniter_eval/blob/main/2.png?raw=true)
+![3](https://github.com/royerreyesleon/codeigniter_eval/blob/main/3.png?raw=true)
+![4](https://github.com/royerreyesleon/codeigniter_eval/blob/main/4.png?raw=true)
 
 ###################
 What is CodeIgniter
