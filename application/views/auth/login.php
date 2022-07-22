@@ -51,7 +51,7 @@
 
             <div class="social-auth-links text-center">
                 <p>- OR -</p>
-                <a href="<?= base_url('auth/register'); ?>" class="btn btn-success btn-block btn-flat">
+                <a href="<?= base_url('auth/register'); ?>" class="btn btn-default btn-block btn-flat">
                     Register
                     <i class="fa fa-share"></i>
                 </a>

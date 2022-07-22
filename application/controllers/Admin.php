@@ -10,13 +10,14 @@ class Admin extends CI_Controller
             redirect('auth/login');
         }
         $this->load->library('grocery_CRUD');
+        $this->load->model('Chatbot_model');
     }
 
     public function index()
     {
-        $this->load->view('admin/index');
+        $this->load->view('admin/chatbot/index');
     }
-    
+
     public function users()
     {
         $crud = new grocery_CRUD();
@@ -36,8 +37,34 @@ class Admin extends CI_Controller
         $this->load->view('admin/grocery', (array)$output);
     }
 
-    public function chatbot()
+    public function getMessageOrStep()
     {
-        $this->load->view('admin/chatbot/index');
+        $step    = $this->input->get_post('step');
+        $message = $this->input->get_post('message');
+        $searchChatbot = '';
+
+        if (empty($step)) {
+            $result  = $this->Chatbot_model->getAllResponsesHuman();
+            $words   = $result;
+
+            foreach ($words as $key => $value) {
+                $partials = explode('|', $value->word);
+
+                if (in_array(strtolower($message), $partials)) {
+                    $searchChatbot = $value->step;
+                    break;
+                }
+            }
+        }else{
+            $searchChatbot = $step;
+        }
+
+        if (!empty($searchChatbot)) {
+            $result = $this->Chatbot_model->getOneChatbot($searchChatbot);
+            echo json_encode($result);
+        } else {
+            $response = ['response' => 'Parece que no tengo respuesta para ello en este momento. Seguiremos mejorando.', 'suggestion' => 'info'];
+            echo json_encode($response);
+        }
     }
 }

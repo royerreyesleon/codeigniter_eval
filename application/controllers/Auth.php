@@ -13,7 +13,11 @@ class Auth extends CI_Controller
 
     public function login()
     {
-        $this->load->view('auth/login');
+        if ($this->session->userdata('GLOBAL_LOGIN')) {
+            redirect('admin');
+        }else{
+            $this->load->view('auth/login');
+        }
     }
 
     public function register()
@@ -23,10 +27,7 @@ class Auth extends CI_Controller
 
     public function logout()
     {
-        $data = $this->session->all_userdata();
-        foreach ($data as $row => $rows_value) {
-            $this->session->unset_userdata($row);
-        }
+        $this->session->sess_destroy();
         redirect('auth/login', 'refresh');
     }
 

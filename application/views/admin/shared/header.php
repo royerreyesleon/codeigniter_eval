@@ -1,5 +1,5 @@
 <header class="main-header">
-    <a href="<?= base_url('admin') ?>" class="logo">
+    <a href="<?= base_url('admin/index') ?>" class="logo">
         <span class="logo-mini">DEMO</span>
         <span class="logo-lg"><b>DEMO</b></span>
     </a>

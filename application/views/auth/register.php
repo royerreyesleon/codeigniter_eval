@@ -61,9 +61,9 @@
 
             <div class="social-auth-links text-center">
                 <p>- OR -</p>
-                <a href="<?= base_url('auth/login'); ?>" class="btn btn-primary btn-block btn-flat">
+                <a href="<?= base_url('auth/login'); ?>" class="btn btn-default btn-block btn-flat">
+                    <i class="fa fa-reply"></i>
                     Login
-                    <i class="fa fa-share"></i>
                 </a>
             </div>
         </div>

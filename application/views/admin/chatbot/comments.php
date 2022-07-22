@@ -14,41 +14,37 @@
 
             <div class="box-body">
 
-                <!-- Conversations are loaded here -->
-                <div class="direct-chat-messages">
+                <div class="direct-chat-messages" style="height: 50vh;">
 
-                    <!-- Message. Default to the left -->
                     <div class="direct-chat-msg">
                         <div class="direct-chat-info clearfix">
                             <span class="direct-chat-name pull-left">Bot</span>
                         </div>
                         <img class="direct-chat-img" src="<?= base_url(ADMINLTE) ?>dist/img/bot.png" alt="Message User Image"><!-- /.direct-chat-img -->
                         <div class="direct-chat-text">
-                            Is this template really for free? That's unbelievable!
+                            Hola bienvenido, soy el chatbot, escribe: hola
                         </div>
                     </div>
 
-                    <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-info clearfix">
-                            <span class="direct-chat-name pull-right"><?= $this->session->userdata('GLOBAL_USER_EMAIL') ?></span>
-                        </div>
-                        <img class="direct-chat-img" src="<?= base_url(ADMINLTE) ?>dist/img/user.png" alt="Message User Image"><!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                            You better believe it!
-                        </div>
-                    </div>
                 </div>
-            
+
             </div>
 
             <div class="box-footer">
                 <form id="form_chatbot">
                     <div class="input-group">
-                        <input type="text" id="message" placeholder="Type Message ..." class="form-control">
+                        <input type="text" id="message" name="message" placeholder="Type Message ..." class="form-control" autofocus>
                         <span class="input-group-btn">
-                            <button type="submit" class="btn btn-primary btn-flat">Send</button>
+                            <button type="submit" class="btn btn-primary btn-flat">
+                                Send
+                                <i class="fa fa-send"></i>
+                            </button>
                         </span>
+
+                        <input type="hidden" id="base_url" value="<?= base_url(ADMINLTE); ?>">
+                        <input type="hidden" id="user_email" value="<?= $this->session->userdata('GLOBAL_USER_EMAIL'); ?>">
+                        <input type="hidden" id="user_img" value="<?= base_url(ADMINLTE) ?>dist/img/user.png">
+                        <input type="hidden" id="chatbot_img" value="<?= base_url(ADMINLTE) ?>dist/img/bot.png">
                     </div>
                 </form>
             </div>

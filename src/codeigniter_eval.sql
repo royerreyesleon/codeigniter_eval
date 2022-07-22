@@ -11,7 +11,7 @@
  Target Server Version : 100417
  File Encoding         : 65001
 
- Date: 20/07/2022 23:34:13
+ Date: 21/07/2022 22:45:25
 */
 
 SET NAMES utf8mb4;
@@ -272,15 +272,25 @@ CREATE TABLE `chatbot`  (
   `step` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `response` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `suggestion` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `trigger` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of chatbot
 -- ----------------------------
-INSERT INTO `chatbot` VALUES (1, 'TEST', '_1', 'Hola, soy el chatbot, escribe info', 'info');
-INSERT INTO `chatbot` VALUES (2, 'TEST', '_2', 'Fui desarrollado para una demo, pero puedo ayudarte en estos temas: demo_yana, inicio', 'demo_yana|inicio');
-INSERT INTO `chatbot` VALUES (3, 'TEST', '_3', 'Primero dime, ¿quién dice que las cosas deberían de ser así como tú las piensas? ¿Quién o qué define el estándar de que las cosas deberían o no deberían de ser de tal manera?', NULL);
+INSERT INTO `chatbot` VALUES (1, 'TEST', '_1', 'Escribe info', 'info', NULL);
+INSERT INTO `chatbot` VALUES (2, 'TEST', '_2', 'Fui desarrollado para una demo, pero puedo ayudarte en estos temas: demo', 'yana|demo', NULL);
+INSERT INTO `chatbot` VALUES (3, 'TEST', '_3', 'Primero dime, ¿quién dice que las cosas deberían de ser así como tú las piensas? ¿Quién o qué define el estándar de que las cosas deberían o no deberían de ser de tal manera?', 'En realidad nadie Creo que afectaría la relación con la persona dependiendo de que decisión tome', NULL);
+INSERT INTO `chatbot` VALUES (4, 'TEST', '_4', 'Ahora me gustaría preguntarte, ¿cómo sabes que cualquier otra alternativa tendría malos resultados o estaría mal? ¿Qué tan grave puede ser que exista otra alternativa?', 'Pues solo lo supongo Un poco grave dependiendo de cómo me afecte a mi y la relación', NULL);
+INSERT INTO `chatbot` VALUES (5, 'TEST', '_5', 'Supongamos que, enfrente de ti, hay una persona que tiene el mismo pensamiento exigente que tú y tu papel es jugar al abogado del diablo. Tu trabajo es hacerle ver el otro lado de la moneda, ¿qué le dirías? ¿Cómo le harías ver que esa no es la única forma de pensar y que hay otras alternativas?', 'Le diría que la vida es demasiado corta como para que piense demasiado en eso', NULL);
+INSERT INTO `chatbot` VALUES (6, 'TEST', '_6', 'Ahora quiero que cambies el \"debería\" por un \"me gustaría\'\'.', '', '_7');
+INSERT INTO `chatbot` VALUES (7, 'TEST', '_7', 'Describe cómo cambia tu perspectiva de la situación...', 'Me gustaría no pensar demasiado las cosas y no pensar tanto en lo que pasaría', NULL);
+INSERT INTO `chatbot` VALUES (8, 'TEST', '_8', 'Buenísimo. Sé que no es fácil debatir con tu propia mente, pero lo hiciste muy bien', NULL, '_9');
+INSERT INTO `chatbot` VALUES (9, 'TEST', '_9', 'Realmente espero que este ejercicio te haya ayudado', '¡Sí me ayudó!|Más o menos|No me ayudó', NULL);
+INSERT INTO `chatbot` VALUES (10, 'TEST', '_10', '¡Perfecto! Aquí estaré si me necesitas.', 'Reiniciar', NULL);
+INSERT INTO `chatbot` VALUES (11, 'TEST', '_11', 'Seguiremos mejorando, para ofrecerte un mejor servicio.', 'Reiniciar', NULL);
+INSERT INTO `chatbot` VALUES (12, 'TEST', '_12', 'Podras consultar con un humano. Te recomiendo contactar a Royer Reyes León. royerleon7@gmail.com', 'Reiniciar', NULL);
 
 -- ----------------------------
 -- Table structure for customers
@@ -9010,16 +9020,22 @@ CREATE TABLE `human`  (
   `step` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `word` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of human
 -- ----------------------------
-INSERT INTO `human` VALUES (1, 'TEST', '_1', 'hola|ola|hello|hi|home|inicio|welcome');
+INSERT INTO `human` VALUES (1, 'TEST', '_1', 'hola|ola|hello|hi|home|inicio|welcome|ok|adios|bye|chao|see you');
 INSERT INTO `human` VALUES (2, 'TEST', '_2', 'info|informacion');
-INSERT INTO `human` VALUES (3, 'TEST', '_3', 'demo_yana');
-INSERT INTO `human` VALUES (4, 'TEST', '_4', 'En realidad nadie Creo que afectaría la relación con la persona dependiendo de que decisión tome');
-INSERT INTO `human` VALUES (5, 'TEST', '_5', 'Pues solo lo supongo Un poco grave dependiendo de cómo me afecte a mi y la relación');
+INSERT INTO `human` VALUES (3, 'TEST', '_3', 'demo_yana|yana|demo');
+INSERT INTO `human` VALUES (4, 'TEST', '_4', 'en realidad nadie creo que afectaría la relación con la persona dependiendo de que decisión tome');
+INSERT INTO `human` VALUES (5, 'TEST', '_5', 'pues solo lo supongo un poco grave dependiendo de cómo me afecte a mi y la relación');
+INSERT INTO `human` VALUES (6, 'TEST', '_6', 'le diría que la vida es demasiado corta como para que piense demasiado en eso');
+INSERT INTO `human` VALUES (7, 'TEST', '_8', 'me gustaría no pensar demasiado las cosas y no pensar tanto en lo que pasaría|debería|me gustaría');
+INSERT INTO `human` VALUES (8, 'TEST', '_10', '¡sí me ayudó!');
+INSERT INTO `human` VALUES (9, 'TEST', '_11', 'más o menos');
+INSERT INTO `human` VALUES (10, 'TEST', '_12', 'no me ayudó');
+INSERT INTO `human` VALUES (11, 'TEST', '_1', 'reiniciar');
 
 -- ----------------------------
 -- Table structure for offices
